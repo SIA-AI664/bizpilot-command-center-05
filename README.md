@@ -1,50 +1,75 @@
-# BizPilot Command
+# BizPilot AI
 
-Summary
+A premium, always-dark intelligent business command centre that streamlines professional workflows through five integrated AI tools. Built with TanStack Start, React 19, TypeScript, and Tailwind CSS v4.
 
-Core Concept: BizPilot AI is a premium SaaS-style "intelligent business command centre" designed to streamline professional workflows through five integrated AI tools.
+## Live Demo
 
-Unified Workflow Innovation: The app’s primary value lies in its interconnected ecosystem, where outputs from one tool (e.g., meeting notes) automatically feed into others (e.g., task planning and email generation).
+- **Published site**: https://bizpilot-command-center-05.lovable.app
+- **Preview site**: https://id-preview--0c633482-a2c0-410e-ba1a-cdf12a0aac49.lovable.app
 
-AI Toolset: Includes a Smart Email Generator, Meeting Summarizer, Task Planner/Scheduler, Research Assistant (with fact-check warnings), and an interactive Workplace Chatbot.
+## Features
 
-Productivity Dashboard: Features a centralized hub for tracking priorities, deadlines, productivity metrics, and AI-driven "Business Insights" for workflow optimization.
+BizPilot AI connects five AI-powered tools into a single, unified workflow:
 
-Responsible AI Design: Every AI output includes a mandatory verification disclaimer and a structured "Input → Generate → Edit → Copy" workflow to ensure human oversight.
+1. **Smart Email Generator** – Draft polished, ready-to-send professional emails with subject lines, tailored by recipient, tone, and purpose.
+2. **Meeting Summarizer** – Turn raw meeting notes into structured briefs with summaries, decisions, action items, and open questions.
+3. **Task Planner** – Convert goals and notes into prioritized schedules with effort estimates and risk flags.
+4. **Research Assistant** – Produce concise business research briefs with fact-check alerts and suggested next steps.
+5. **Workplace Chatbot** – Ask BizPilot anything for drafting help, brainstorming, prioritization, or productivity advice.
 
-Technical Standards: Requires a fully responsive, modern interface with robust prompt engineering (Role + Task + Context) and secure data handling.
+### Unified Workflow
 
-Action items
+Outputs from one tool can be handed off to another. For example, meeting summaries can flow straight into task planning or email follow-ups.
 
-Product Owner — Finalize detailed user stories for the "Unified AI" cross-tool integration logic — Due: End of Week 1
+## Tech Stack
 
-UX/UI Designer — Create high-fidelity mockups for the responsive Dashboard and Sidebar navigation — Due: Week 2
+- **Framework**: [TanStack Start v1](https://tanstack.com/start) (full-stack React 19 with SSR/SSG)
+- **Build Tool**: [Vite 7](https://vitejs.dev)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS v4 with CSS theme variables
+- **AI**: Lovable AI Gateway using `google/gemini-3.7-flash`
+- **Icons**: [Lucide React](https://lucide.dev)
 
-AI Engineer — Develop structured prompts (Role-Task-Context) for all five core AI features — Due: Week 2
+## Project Structure
 
-Lead Developer — Build the functional prototype focusing on the "Copy/Save/Regenerate" output loop — Due: Week 4
+```
+src/
+  components/        # Shared UI components (AppShell, OutputPanel, etc.)
+  lib/               # Client utilities and server functions
+    ai.functions.ts  # AI server-function wrappers
+    ai.server.ts     # AI gateway client
+    saved.ts         # LocalStorage save/handoff helpers
+  routes/            # TanStack file-based routes
+  styles.css         # Tailwind v4 entry + theme tokens
+  start.ts           # App bootstrap
+```
 
-Legal/Compliance — Review the Responsible AI disclaimer and data privacy protocols — Due: Prior to Launch
+## Getting Started
 
-This project was built with [Lovable](https://lovable.dev).
+### Prerequisites
 
-**Live app**: https://bizpilot-command-center-05.lovable.app
+- Node.js (LTS recommended)
+- `npm` or `bun`
 
-## Build with Lovable
-
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/0c633482-a2c0-410e-ba1a-cdf12a0aac49).
-
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
-
-## Development
-
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
+### Install and Run
 
 ```sh
 git clone <this-repository-url>
-cd <repository-name>
-npm i
-npm run dev
+cd bizpilot-command-center
+bun install
+bun run dev
 ```
+
+The dev server runs on `http://localhost:8080`.
+
+### AI Configuration
+
+The AI features use the Lovable AI Gateway. The server function reads `LOVABLE_API_KEY` at call time — no client-side API keys required.
+
+## Responsible AI
+
+AI outputs are drafts. Always review names, dates, figures, and commitments before sending or acting on generated content.
+
+## License
+
+This project is built and owned by its creator. See the repository for licensing details.
